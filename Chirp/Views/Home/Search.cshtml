@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Search Chirp";
+}
+
+<div class="jumbotron">
+    <img src="~/img/chirp.png" alt="Chirp"/>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>@Html.Raw(ViewBag.ResultsDescriptor)</h3>
+
+        <div id="table">
+@foreach (var chirp in ViewBag.Chirps) {
+            <div class="row">
+                <span class="cell bigText"><a href="/Home/Search?user=@chirp.User">&#64;@chirp.User</a></span>
+                <span class="cell medText">
+                    @Html.Raw(chirp.FormattedText)
+                    <br/>
+                    <span class="smlText">@chirp.Timestamp</span>
+                </span>
+            </div>
+}
+        </div>
+
+    </div>
+</div>
